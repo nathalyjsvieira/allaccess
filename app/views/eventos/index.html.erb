@@ -1,0 +1,22 @@
+<p style="color: green"><%= notice %></p>
+<!-- Lista de Eventos -->
+<h2>Eventos</h2>
+
+
+
+<div id='calendar'>
+  <%= month_calendar(events: @eventos, attribute: :inicio, end_attribute: :fim) do |date, meetings| %>
+  <%= date %>
+
+    <% @eventos.where("inicio<=:date and fim>=:date", date: date).each do |evento| %>
+      <div>
+        <p><strong><%= evento.nome %></strong> </p>
+        <p><strong>Descrição:</strong> <%= evento.descricao %></p>
+        <p><%= link_to 'Editar', edit_evento_path(evento) %></p>
+        <p><%= link_to 'Remover', evento, method: :delete, data: { confirm: 'Você tem certeza?' } %></p>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+
+<%= link_to 'Novo Evento', new_evento_path %>

@@ -1,0 +1,30 @@
+<%= form_with(model: @anotacao, url: anotacaos_path) do |form| %>
+  <% if anotacao.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(anotacao.errors.count, "error") %> prohibited this anotacao from being saved:</h2>
+
+      <ul>
+        <% anotacao.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :nome %>
+    <%= form.text_field :nome %>
+  </div>
+  
+  <div>
+    <%= form.label :descricao %>
+    <%= form.text_area :descricao %>
+  </div>
+  
+  <div>
+    <%= form.label :data %>
+    <%= form.datetime_local_field :data %>
+  </div>
+  
+  <%= form.submit %>
+<% end %>

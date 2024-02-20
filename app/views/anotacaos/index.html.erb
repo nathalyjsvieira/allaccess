@@ -1,0 +1,22 @@
+<p style="color: green"><%= notice %></p>
+
+<!-- Lista de Anotações -->
+<h2>Notes</h2>
+<br>
+
+<div class="grid">
+<% @anotacaos.each do |anotacao| %>
+  <div class="anotacao">
+    <h3><%= anotacao.nome %></h3>
+    <p><%= anotacao.descricao %></p>
+    <p>Data: <%= anotacao.data %></p>
+    <%= link_to 'Edit', edit_anotacao_path(anotacao), remote: true %>
+    <br>
+    <%= link_to "Delete", anotacao, method: :delete %>
+  </div>
+<% end %>
+</div>
+
+<div class="center">
+  <%= link_to 'New Note', new_anotacao_path %>
+</div>

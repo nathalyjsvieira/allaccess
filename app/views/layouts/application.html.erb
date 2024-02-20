@@ -8,9 +8,20 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+
+    <!--=============== REMIXICONS ===============-->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+  
+    <script src="app/javascript/jquery-3.7.1.min.js"></script>
   </head>
 
   <body>
+
+    <h1>
+      <%= link_to "AllAcess", root_path %>
+    </h1>
+    <br>
+    <%= render "shared/navbar" %>
     <%= yield %>
   </body>
 </html>
